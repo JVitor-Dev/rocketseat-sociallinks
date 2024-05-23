@@ -86,6 +86,8 @@ div#container {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
+
+  animation: slide-out 0.2s;
 }
 
 #switch span{
@@ -102,9 +104,11 @@ div#container {
 }
 
 .light #switch button{
-  right: 0;
-  left: initial;
-  
+  animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover{
+  outline: 8px solid var(--highlight-color-mode);
 }
 
 /* Links */
@@ -183,9 +187,19 @@ footer{
 @media (min-width: 700px) {
   :root{
     --bg-url: url(./assets/bg-desktop.jpg);
-  } */
+  } 
 
   .light{
     --bg-url: url(./assets/bg-desktop-light.jpg);
   }
+}
+
+@keyframes slide-in{
+  from{ left: 0;}
+  to{left: 50%;}
+}
+
+@keyframes slide-out{
+  from{left: 50%;}
+  to{left: 0;}
 }
